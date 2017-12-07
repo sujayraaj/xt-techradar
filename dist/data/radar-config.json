@@ -63,52 +63,11 @@
   "entries": [
     {
       "quadrant": 0,
-      "ring": 2,
-      "label": "Preact",
-      "active": false,
-      "description": "",
-      "stars": ""
-    },
-    {
-      "quadrant": 0,
-      "ring": 2,
-      "label": "React Native",
-      "active": false,
-      "description": "",
-      "stars": ""
-    },
-
-    {
-      "quadrant": 0,
-      "ring": 2,
-      "label": "Redux",
-      "active": false,
-      "description": "",
-      "stars": 2345
-    },
-    {
-      "quadrant": 0,
-      "ring": 2,
-      "label": "Angular",
-      "active": false,
-      "description": "",
-      "stars": ""
-    },
-    {
-      "quadrant": 0,
-      "ring": 2,
-      "label": "Ionic",
-      "active": false,
-      "description": "",
-      "stars": ""
-    },
-    {
-      "quadrant": 0,
       "ring": 1,
-      "label": "TypeScript",
+      "label": "AWS EMR",
       "active": false,
-      "description": "",
-      "stars": ""
+      "description": " AWS EMR is a technogly that does something",
+      "stars": 2345
     },
     {
       "quadrant": 1,

@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+ul{
+    margin:0;
+    padding:0;
+}
+.title{
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    padding: 5px 10px;
+}
+.quad,.ring {
+    float: left;
+    width: 50%;
+}
+.quad-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+.quad{
+    padding:20px;
+}
+.ring{
+  padding:10px 15px;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+.ring li{
+    font-size:15px;
+    padding:5px;
+}
+.ring-title {
+    text-decoration: underline;
+}

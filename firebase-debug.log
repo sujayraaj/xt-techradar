@@ -1,0 +1,24 @@
+[debug] [2017-12-07T09:59:41.011Z] ----------------------------------------------------------------------
+[debug] [2017-12-07T09:59:41.015Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-12-07T09:59:41.016Z] CLI Version:   3.15.3
+[debug] [2017-12-07T09:59:41.016Z] Platform:      darwin
+[debug] [2017-12-07T09:59:41.016Z] Node Version:  v6.11.1
+[debug] [2017-12-07T09:59:41.017Z] Time:          Thu Dec 07 2017 15:29:41 GMT+0530 (IST)
+[debug] [2017-12-07T09:59:41.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-07T09:59:41.046Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-07T09:59:41.046Z] > authorizing via signed-in user
+[debug] [2017-12-07T09:59:41.050Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-07T09:59:41.052Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/UODxqAFHVos2v9OO-825WKPtxgJaElgEN_r43Rnha8M',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Dec 07 2017 15:29:41 GMT+0530 (IST)
+[debug] [2017-12-07T09:59:41.349Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T09:59:41.369Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/xt-techradar  
+ Thu Dec 07 2017 15:29:41 GMT+0530 (IST)
+[debug] [2017-12-07T09:59:42.603Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-07T09:59:42.604Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/xt-techradar/tokens  
+ Thu Dec 07 2017 15:29:42 GMT+0530 (IST)
+[debug] [2017-12-07T09:59:43.652Z] <<< HTTP RESPONSE 200
