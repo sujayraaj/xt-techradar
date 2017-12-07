@@ -222,8 +222,9 @@ function radar_visualization(config) {
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", rings[i].radius)
-      .style("fill", "none")
+      .style("fill", config.rings[i].color)
       .style("stroke", config.colors.grid)
+      .style("fill-opacity", 0.2)
       .style("stroke-width", 1);
     if (config.print_layout) {
       grid
