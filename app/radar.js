@@ -45,12 +45,7 @@ function radar_visualization(config) {
     { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 }
   ];
 
-  const rings = [
-    { radius: 130 },
-    { radius: 220 },
-    { radius: 310 },
-    { radius: 400 }
-  ];
+  const rings = [{ radius: 130 }, { radius: 220 }, { radius: 310 }];
 
   const footer_offset = { x: -675, y: 420 };
 
@@ -104,8 +99,8 @@ function radar_visualization(config) {
       y: 15 * quadrants[quadrant].factor_y
     };
     var cartesian_max = {
-      x: rings[3].radius * quadrants[quadrant].factor_x,
-      y: rings[3].radius * quadrants[quadrant].factor_y
+      x: rings[2].radius * quadrants[quadrant].factor_x,
+      y: rings[2].radius * quadrants[quadrant].factor_y
     };
     return {
       clipx: function(d) {
@@ -201,16 +196,16 @@ function radar_visualization(config) {
   grid
     .append("line")
     .attr("x1", 0)
-    .attr("y1", -400)
+    .attr("y1", -310)
     .attr("x2", 0)
-    .attr("y2", 400)
+    .attr("y2", 310)
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
   grid
     .append("line")
-    .attr("x1", -400)
+    .attr("x1", -310)
     .attr("y1", 0)
-    .attr("x2", 400)
+    .attr("x2", 310)
     .attr("y2", 0)
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
