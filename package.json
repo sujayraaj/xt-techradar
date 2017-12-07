@@ -1,0 +1,27 @@
+{
+  "name": "tech_radar",
+  "version": "1.0.0",
+  "description": "At sapientrazorfish:XT (https://www.sapientrazorfish.com/), we maintain a [public Tech\r Radar] to help our engineering teams\r align on technology choices",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/areai51/tech-radar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/areai51/tech-radar/issues"
+  },
+  "homepage": "https://github.com/areai51/tech-radar#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
