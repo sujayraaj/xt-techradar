@@ -196,8 +196,9 @@ function radar_visualization(config) {
   for (var i = rings.length - 1; i >= 0; i--) {
     let rectX = [0, -rings[i].radius, 0, -rings[i].radius],
       rectY = [0, 0, -rings[i].radius, -rings[i].radius],
-      opacityFactor = 0.2;
-    rectsContainer = grid.append("g").attr("clip-path", "url(#quad" + i + ")");
+      rectsContainer = grid
+        .append("g")
+        .attr("clip-path", "url(#quad" + i + ")");
     defs
       .append("clipPath")
       .attr("id", "quad" + i)
@@ -215,7 +216,7 @@ function radar_visualization(config) {
         .attr("stroke", "#FFF")
         .attr("stroke-width", 0)
         .attr("fill", config.quadrants[j].bgcolor)
-        .attr("fill-opacity", 1 - opacityFactor * i);
+        .attr("fill-opacity", 1 / (i + 1));
     }
     /* Circle to draw Outline */
     grid
