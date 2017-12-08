@@ -191,36 +191,41 @@ function radar_visualization(config) {
   }
 
   var grid = radar.append("g");
-
-  // draw grid lines
-  grid
-    .append("line")
-    .attr("x1", 0)
-    .attr("y1", -310)
-    .attr("x2", 0)
-    .attr("y2", 310)
-    .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
-  grid
-    .append("line")
-    .attr("x1", -310)
-    .attr("y1", 0)
-    .attr("x2", 310)
-    .attr("y2", 0)
-    .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
-
+  var defs = grid.append("defs");
   // draw rings
-  for (var i = 0; i < rings.length; i++) {
+  for (var i = rings.length - 1; i >= 0; i--) {
+    let rectX = [0, -rings[i].radius, 0, -rings[i].radius],
+      rectY = [0, 0, -rings[i].radius, -rings[i].radius],
+      opacityFactor = 0.2;
+    rectsContainer = grid.append("g").attr("clip-path", "url(#quad" + i + ")");
+    defs
+      .append("clipPath")
+      .attr("id", "quad" + i)
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", rings[i].radius);
+    for (var j = 0; j < config.quadrants.length; j++) {
+      rectsContainer
+        .append("rect")
+        .attr("x", rectX[j])
+        .attr("y", rectY[j])
+        .attr("width", rings[i].radius)
+        .attr("height", rings[i].radius)
+        .attr("stroke", "#FFF")
+        .attr("stroke-width", 0)
+        .attr("fill", config.quadrants[j].bgcolor)
+        .attr("fill-opacity", 1 - opacityFactor * i);
+    }
+    /* Circle to draw Outline */
     grid
       .append("circle")
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", rings[i].radius)
-      .style("fill", config.rings[i].color)
-      .style("stroke", config.colors.grid)
-      .style("fill-opacity", 0.2)
-      .style("stroke-width", 1);
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 3)
+      .attr("fill", "none");
     if (config.print_layout) {
       grid
         .append("text")
@@ -229,13 +234,29 @@ function radar_visualization(config) {
         .attr("text-anchor", "middle")
         .style("fill", "#e5e5e5")
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", 42)
+        .style("font-size", 30)
         .style("font-weight", "bold")
         .style("pointer-events", "none")
         .style("user-select", "none");
     }
   }
-
+  /* Draw Lines */
+  grid
+    .append("line")
+    .attr("x1", 0)
+    .attr("y1", -310)
+    .attr("x2", 0)
+    .attr("y2", 310)
+    .style("stroke", "#FFF")
+    .style("stroke-width", 3);
+  grid
+    .append("line")
+    .attr("x1", -310)
+    .attr("y1", 0)
+    .attr("x2", 310)
+    .attr("y2", 0)
+    .style("stroke", "#FFF")
+    .style("stroke-width", 3);
   function legend_transform(quadrant, ring, index = null) {
     var dx = ring < 2 ? 0 : 120;
     var dy = index == null ? -16 : index * 12;
