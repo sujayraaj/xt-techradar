@@ -34,3 +34,24 @@ ul{
 .ring-title {
     text-decoration: underline;
 }
+.filter-box{
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    letter-spacing: 0.1em;
+}
+.filter-box span{
+    display: inline-block;
+    padding: 10px;
+    text-transform: capitalize;
+}
+.filter-box select{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 35px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

@@ -5,14 +5,16 @@
       "ring": 2,
       "label": "Preact",
       "description": "",
-      "stars": ""
+      "stars": "",
+      "platform":["web", "mobile"]
     },
     {
       "quadrant": 0,
       "ring": 2,
       "label": "React Native",
       "description": "",
-      "stars": ""
+      "stars": "",
+      "platform":["mobile", "smartwatch"]
     },
 
     {
