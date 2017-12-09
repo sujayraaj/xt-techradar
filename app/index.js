@@ -1,4 +1,4 @@
-(function($) {
+(function(app, $) {
   function text_visualization(config) {
     $(".title").html(config.title);
     /* Rings */
@@ -31,7 +31,11 @@
     }
     $("#textual-data").html(quadContainer);
     $(".quad").append(ringsContainer);
-    $.each(config.entries, function(index, entry) {
+    fillData(config.entries);
+  }
+  function fillData(entries) {
+    $(".ring li").remove();
+    $.each(entries, function(index, entry) {
       let quadNumber = entry.quadrant,
         ringNumber = entry.ring,
         ringData = $("<li/>", { html: entry.label });
@@ -51,16 +55,59 @@
     return uniqueTags;
   }
   function generatefilterTemplate(filterTags) {
-    let filterOptionsBox = $("<select/>");
+    let filterTitle = $("<legend/>", { html: "Filter By Platform" });
+    let filterOptionsBox = $("<fieldset/>").append(filterTitle);
     $.each(filterTags, function(index, tag) {
-      $(filterOptionsBox).append(
-        $("<option>", {
+      let inputBoxContainer = $("<div/>", { class: "filter-tags" }).appendTo(
+        filterOptionsBox
+      );
+      $(inputBoxContainer).append(
+        $("<input/>", {
           value: tag,
+          type: "checkbox",
+          name: "filter_tags",
+          id: tag
+        })
+      );
+      $(inputBoxContainer).append(
+        $("<label/>", {
+          for: tag,
           text: tag
         })
       );
     });
     filterOptionsBox.appendTo($(".filter-box"));
+  }
+  function filterDataOnChange() {
+    $(".filter-box input").on("change", function() {
+      let filters = $(".filter-box input:checkbox:checked")
+        .map(function() {
+          return $(this).val();
+        })
+        .toArray();
+      filterData(filters);
+    });
+  }
+  function filterData(filters) {
+    if (filters.length === 0) {
+      $("#radar").html("");
+      fillData(app.data.entries);
+      radar_visualization(app.data);
+      return;
+    }
+    let filteredData = app.data.entries.filter(function(entry) {
+      if (entry.platform) {
+        return filters.some(function(filter) {
+          return entry.platform.includes(filter);
+        });
+      }
+    });
+    let data = Object.assign({}, app.data);
+    data.entries = filteredData;
+    $("#radar").html("");
+    radar_visualization(data);
+    fillData(filteredData);
+    data = "";
   }
   $(document).ready(function() {
     $.getJSON("data")
@@ -69,10 +116,12 @@
         text_visualization(data);
         let uniqueTags = createFilterTags(data.entries);
         generatefilterTemplate(uniqueTags);
+        filterDataOnChange();
+        app.data = data;
       })
       .fail(function(jqxhr, textStatus, error) {
         var err = textStatus + ", " + error;
         console.log("Request Failed: " + err);
       });
   });
-})(jQuery);
+})((window.app = window.app || {}), jQuery);

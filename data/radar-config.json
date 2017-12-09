@@ -1,7 +1,7 @@
 {
   "svg_id": "radar",
   "width": 1300,
-  "height": 1000,
+  "height":620,
   "colors": {
     "background": "#fff",
     "grid": "#bbb",

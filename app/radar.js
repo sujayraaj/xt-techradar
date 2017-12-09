@@ -47,8 +47,6 @@ function radar_visualization(config) {
 
   const rings = [{ radius: 130 }, { radius: 220 }, { radius: 310 }];
 
-  const footer_offset = { x: -675, y: 420 };
-
   function polar(cartesian) {
     var x = cartesian.x;
     var y = cartesian.y;
@@ -339,7 +337,7 @@ function radar_visualization(config) {
     var blip = d3.select(this);
 
     // blip link
-    if (!config.print_layout && d.active && d.hasOwnProperty("link")) {
+    if (!config.print_layout && d.hasOwnProperty("link")) {
       blip = blip.append("a").attr("xlink:href", d.link);
     }
 
@@ -358,7 +356,9 @@ function radar_visualization(config) {
       blip
         .append("circle")
         .attr("r", 9)
-        .attr("fill", d.color);
+        .attr("fill", d.color)
+        .attr("stroke", "#FFF")
+        .attr("stroke-width", 2);
     }
 
     // blip text
@@ -372,7 +372,7 @@ function radar_visualization(config) {
         .style("fill", "#fff")
         .style("font-family", "Arial, Helvetica")
         .style("font-size", function(d) {
-          return blip_text.length > 2 ? "8" : "9";
+          return blip_text.length > 2 ? "9" : "10";
         })
         .style("pointer-events", "none")
         .style("user-select", "none");
