@@ -21,7 +21,7 @@ ul{
     letter-spacing: 0.1em;
 }
 .quad{
-    width:320px;
+    width:370px;
     max-height: 300px;
     padding:20px;
     position: absolute;
@@ -67,14 +67,14 @@ ul{
 }
 .quad2{
     left:0;
-    top:200px;
+    top:150px;
 }
 .quad3{
-    right: 0;
+    right: 20px;
     top: 150px;
 }
 .quad0{
-    right: 0;
+    right: 20px;
     top: 460px;
 }
 .quad1{
