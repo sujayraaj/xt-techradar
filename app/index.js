@@ -24,7 +24,7 @@
         html: config.quadrants[quad].name
       });
       let quadDiv = $("<div/>", {
-        class: "quad",
+        class: "quad quad" + quad,
         "data-quad": quad,
         html: quadTitle
       }).appendTo(quadContainer);

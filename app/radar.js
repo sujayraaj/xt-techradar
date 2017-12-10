@@ -136,10 +136,10 @@ function radar_visualization(config) {
   }
 
   // partition entries according to segments
-  var segmented = new Array(4);
-  for (var quadrant = 0; quadrant < 4; quadrant++) {
-    segmented[quadrant] = new Array(4);
-    for (var ring = 0; ring < 4; ring++) {
+  var segmented = new Array(config.quadrants.length);
+  for (var quadrant = 0; quadrant < config.quadrants.length; quadrant++) {
+    segmented[quadrant] = new Array(config.quadrants.length);
+    for (var ring = 0; ring < rings.length; ring++) {
       segmented[quadrant][ring] = [];
     }
   }
@@ -151,7 +151,7 @@ function radar_visualization(config) {
   // assign unique sequential id to each entry
   var id = 1;
   for (var quadrant of [2, 3, 1, 0]) {
-    for (var ring = 0; ring < 4; ring++) {
+    for (var ring = 0; ring < 3; ring++) {
       var entries = segmented[quadrant][ring];
       entries.sort(function(a, b) {
         return a.label.localeCompare(b.label);
