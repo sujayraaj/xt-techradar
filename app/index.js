@@ -6,14 +6,14 @@
       $(".title")
     );
     for (let ring = 0; ring < config.rings.length; ring++) {
-      let quadTitle = $("<span/>", {
+      let ringTitle = $("<label/>", {
         class: "ring-title",
         html: config.rings[ring].name
       });
       let ringDiv = $("<ul/>", {
         class: "ring",
         "data-ring": ring,
-        html: quadTitle
+        html: ringTitle
       }).appendTo(ringsContainer);
     }
     /* Quadrants */
@@ -48,8 +48,13 @@
   function createFilterTags(entries) {
     /*saving all array of tags */
     let tags = [];
-    $.each(entries, function(index, value) {
-      if (value.platform) tags = tags.concat(value.platform);
+    $.each(entries, function(index, entry) {
+      if (entry.platform) {
+        let platforms = entry.platform.map(function(platform) {
+          return platform.toLowerCase();
+        });
+        tags = tags.concat(platforms);
+      }
     });
     let uniqueTags = [...new Set(tags)];
     return uniqueTags;
@@ -98,7 +103,11 @@
     let filteredData = app.data.entries.filter(function(entry) {
       if (entry.platform) {
         return filters.some(function(filter) {
-          return entry.platform.includes(filter);
+          let platforms = entry.platform.map(function(platform) {
+            return platform.toLowerCase();
+          });
+          console.log(platforms, filter);
+          return platforms.includes(filter.toLowerCase());
         });
       }
     });
