@@ -1,0 +1,83 @@
+{
+"entries": [
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Preact",
+      "description": "",
+      "stars": "",
+      "platform":["web", "mobile"]
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "React Native",
+      "description": "",
+      "stars": "",
+      "platform":["Mobile", "smartwatch"]
+    },
+
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Redux",
+      "description": "",
+      "stars": 2345
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Angular",
+      "description": "",
+      "stars": ""
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Ionic",
+      "active": false,
+      "description": "",
+      "stars": ""
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "label": "TypeScript",
+      "active": false,
+      "description": "",
+      "stars": ""
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "Angular",
+      "active": false,
+      "description": "Angular is an extremely developer friendly framework",
+      "stars": 2345
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "React",
+      "active": false,
+      "description": "Most Popular JS Library",
+      "stars": 2345
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "Vue JS",
+      "active": false,
+      "description": "A perfect combination of the best of Angular and React",
+      "stars": 2345
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "Vue JS",
+      "active": false,
+      "description": "A perfect combination of the best of Angular and React",
+      "stars": 2345
+    }
+  ]
+}

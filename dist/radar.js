@@ -45,14 +45,7 @@ function radar_visualization(config) {
     { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 }
   ];
 
-  const rings = [
-    { radius: 130 },
-    { radius: 220 },
-    { radius: 310 },
-    { radius: 400 }
-  ];
-
-  const footer_offset = { x: -675, y: 420 };
+  const rings = [{ radius: 130 }, { radius: 220 }, { radius: 310 }];
 
   function polar(cartesian) {
     var x = cartesian.x;
@@ -104,8 +97,8 @@ function radar_visualization(config) {
       y: 15 * quadrants[quadrant].factor_y
     };
     var cartesian_max = {
-      x: rings[3].radius * quadrants[quadrant].factor_x,
-      y: rings[3].radius * quadrants[quadrant].factor_y
+      x: rings[2].radius * quadrants[quadrant].factor_x,
+      y: rings[2].radius * quadrants[quadrant].factor_y
     };
     return {
       clipx: function(d) {
@@ -143,10 +136,10 @@ function radar_visualization(config) {
   }
 
   // partition entries according to segments
-  var segmented = new Array(4);
-  for (var quadrant = 0; quadrant < 4; quadrant++) {
-    segmented[quadrant] = new Array(4);
-    for (var ring = 0; ring < 4; ring++) {
+  var segmented = new Array(config.quadrants.length);
+  for (var quadrant = 0; quadrant < config.quadrants.length; quadrant++) {
+    segmented[quadrant] = new Array(config.quadrants.length);
+    for (var ring = 0; ring < rings.length; ring++) {
       segmented[quadrant][ring] = [];
     }
   }
@@ -158,7 +151,7 @@ function radar_visualization(config) {
   // assign unique sequential id to each entry
   var id = 1;
   for (var quadrant of [2, 3, 1, 0]) {
-    for (var ring = 0; ring < 4; ring++) {
+    for (var ring = 0; ring < 3; ring++) {
       var entries = segmented[quadrant][ring];
       entries.sort(function(a, b) {
         return a.label.localeCompare(b.label);
@@ -196,35 +189,42 @@ function radar_visualization(config) {
   }
 
   var grid = radar.append("g");
-
-  // draw grid lines
-  grid
-    .append("line")
-    .attr("x1", 0)
-    .attr("y1", -400)
-    .attr("x2", 0)
-    .attr("y2", 400)
-    .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
-  grid
-    .append("line")
-    .attr("x1", -400)
-    .attr("y1", 0)
-    .attr("x2", 400)
-    .attr("y2", 0)
-    .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
-
+  var defs = grid.append("defs");
   // draw rings
-  for (var i = 0; i < rings.length; i++) {
+  for (var i = rings.length - 1; i >= 0; i--) {
+    let rectX = [0, -rings[i].radius, 0, -rings[i].radius],
+      rectY = [0, 0, -rings[i].radius, -rings[i].radius],
+      rectsContainer = grid
+        .append("g")
+        .attr("clip-path", "url(#quad" + i + ")");
+    defs
+      .append("clipPath")
+      .attr("id", "quad" + i)
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", rings[i].radius);
+    for (var j = 0; j < config.quadrants.length; j++) {
+      rectsContainer
+        .append("rect")
+        .attr("x", rectX[j])
+        .attr("y", rectY[j])
+        .attr("width", rings[i].radius)
+        .attr("height", rings[i].radius)
+        .attr("stroke", "#FFF")
+        .attr("stroke-width", 0)
+        .attr("fill", config.quadrants[j].bgcolor)
+        .attr("fill-opacity", 1 / (i + 1));
+    }
+    /* Circle to draw Outline */
     grid
       .append("circle")
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", rings[i].radius)
-      .style("fill", "none")
-      .style("stroke", config.colors.grid)
-      .style("stroke-width", 1);
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 3)
+      .attr("fill", "none");
     if (config.print_layout) {
       grid
         .append("text")
@@ -233,13 +233,29 @@ function radar_visualization(config) {
         .attr("text-anchor", "middle")
         .style("fill", "#e5e5e5")
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", 42)
+        .style("font-size", 30)
         .style("font-weight", "bold")
         .style("pointer-events", "none")
         .style("user-select", "none");
     }
   }
-
+  /* Draw Lines */
+  grid
+    .append("line")
+    .attr("x1", 0)
+    .attr("y1", -310)
+    .attr("x2", 0)
+    .attr("y2", 310)
+    .style("stroke", "#FFF")
+    .style("stroke-width", 3);
+  grid
+    .append("line")
+    .attr("x1", -310)
+    .attr("y1", 0)
+    .attr("x2", 310)
+    .attr("y2", 0)
+    .style("stroke", "#FFF")
+    .style("stroke-width", 3);
   function legend_transform(quadrant, ring, index = null) {
     var dx = ring < 2 ? 0 : 120;
     var dy = index == null ? -16 : index * 12;
@@ -321,7 +337,7 @@ function radar_visualization(config) {
     var blip = d3.select(this);
 
     // blip link
-    if (!config.print_layout && d.active && d.hasOwnProperty("link")) {
+    if (!config.print_layout && d.hasOwnProperty("link")) {
       blip = blip.append("a").attr("xlink:href", d.link);
     }
 
@@ -340,7 +356,9 @@ function radar_visualization(config) {
       blip
         .append("circle")
         .attr("r", 9)
-        .attr("fill", d.color);
+        .attr("fill", d.color)
+        .attr("stroke", "#FFF")
+        .attr("stroke-width", 2);
     }
 
     // blip text
@@ -354,7 +372,7 @@ function radar_visualization(config) {
         .style("fill", "#fff")
         .style("font-family", "Arial, Helvetica")
         .style("font-size", function(d) {
-          return blip_text.length > 2 ? "8" : "9";
+          return blip_text.length > 2 ? "9" : "10";
         })
         .style("pointer-events", "none")
         .style("user-select", "none");
