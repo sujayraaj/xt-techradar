@@ -335,7 +335,7 @@ function radar_visualization(config) {
   // configure each blip
   blips.each(function(d) {
     var blip = d3.select(this);
-
+    var i = 0;
     // blip link
     if (!config.print_layout && d.hasOwnProperty("link")) {
       blip = blip.append("a").attr("xlink:href", d.link);
@@ -353,31 +353,38 @@ function radar_visualization(config) {
         .attr("d", "M -11,-5 11,-5 0,13 z") // triangle pointing down
         .style("fill", d.color);
     } else {
-      blip
+      var blipCircle = blip
         .append("circle")
-        .attr("r", 9)
+        .attr("r", 0)
         .attr("fill", d.color)
         .attr("stroke", "#000")
         .attr("stroke-width", 0.5);
     }
-
+    blipCircle
+      .transition()
+      .duration(600)
+      .attr("r", 9);
     // blip text
-    if (d.active || config.print_layout) {
+    if (config.print_layout) {
       var blip_text = config.print_layout ? d.id : d.label.match(/[a-z]/i);
-      blip
+      var blipText = blip
         .append("text")
         .text(blip_text)
         .attr("y", 3)
         .attr("text-anchor", "middle")
         .style("fill", "#000")
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", function(d) {
-          return blip_text.length > 2 ? "9" : "10";
-        })
+        .style("font-size", "0")
         .style("pointer-events", "none")
         .style("user-select", "none")
         .style("font-weight", "bold");
     }
+    blipText
+      .transition()
+      .duration(700)
+      .style("font-size", function(d) {
+        return blip_text.length > 2 ? "9" : "10";
+      });
   });
 
   // make sure that blips stay inside their segment
