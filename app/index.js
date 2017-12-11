@@ -31,7 +31,15 @@
     }
     $("#textual-data").html(quadContainer);
     $(".quad").append(ringsContainer);
-    fillData(config.entries);
+    let entries = sortData(config.entries);
+    fillData(entries);
+  }
+  function sortData(entries) {
+    return entries.sort(function(a, b) {
+      a = a.label.toLowerCase();
+      b = b.label.toLowerCase();
+      return a < b ? -1 : a > b ? 1 : 0;
+    });
   }
   function fillData(entries) {
     $(".ring li").remove();

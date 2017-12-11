@@ -357,8 +357,8 @@ function radar_visualization(config) {
         .append("circle")
         .attr("r", 9)
         .attr("fill", d.color)
-        .attr("stroke", "#FFF")
-        .attr("stroke-width", 2);
+        .attr("stroke", "#000")
+        .attr("stroke-width", 0.5);
     }
 
     // blip text
@@ -369,13 +369,14 @@ function radar_visualization(config) {
         .text(blip_text)
         .attr("y", 3)
         .attr("text-anchor", "middle")
-        .style("fill", "#fff")
+        .style("fill", "#000")
         .style("font-family", "Arial, Helvetica")
         .style("font-size", function(d) {
           return blip_text.length > 2 ? "9" : "10";
         })
         .style("pointer-events", "none")
-        .style("user-select", "none");
+        .style("user-select", "none")
+        .style("font-weight", "bold");
     }
   });
 

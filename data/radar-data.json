@@ -5,7 +5,7 @@
       "ring": 2,
       "label": "Preact",
       "description": "",
-      "stars": "",
+      "stars": 1234,
       "platform":["web", "mobile"]
     },
     {
@@ -13,8 +13,8 @@
       "ring": 2,
       "label": "React Native",
       "description": "",
-      "stars": "",
-      "platform":["Mobile", "smartwatch"]
+      "stars": 1234,
+      "platform":["mobile", "AR/VR"]
     },
 
     {
@@ -22,36 +22,37 @@
       "ring": 2,
       "label": "Redux",
       "description": "",
-      "stars": 2345
+      "stars": 2345,
+      "platform":["web"]
     },
     {
       "quadrant": 0,
       "ring": 2,
       "label": "Angular",
       "description": "",
-      "stars": ""
+      "stars": 1234,
+      "platform":["web"]
     },
     {
       "quadrant": 0,
       "ring": 2,
       "label": "Ionic",
-      "active": false,
       "description": "",
-      "stars": ""
+      "stars":1234,
+      "platform":["mobile"]
     },
     {
       "quadrant": 0,
       "ring": 1,
       "label": "TypeScript",
-      "active": false,
       "description": "",
-      "stars": ""
+      "stars": 12345,
+      "platform":["web"]
     },
     {
       "quadrant": 1,
       "ring": 1,
       "label": "Angular",
-      "active": false,
       "description": "Angular is an extremely developer friendly framework",
       "stars": 2345
     },
@@ -59,7 +60,6 @@
       "quadrant": 2,
       "ring": 1,
       "label": "React",
-      "active": false,
       "description": "Most Popular JS Library",
       "stars": 2345
     },
@@ -67,17 +67,177 @@
       "quadrant": 3,
       "ring": 1,
       "label": "Vue JS",
-      "active": false,
       "description": "A perfect combination of the best of Angular and React",
       "stars": 2345
     },
     {
       "quadrant": 3,
+      "ring": 2,
+      "label": "Angular4",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "label": "React",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
       "ring": 1,
-      "label": "Vue JS",
-      "active": false,
-      "description": "A perfect combination of the best of Angular and React",
-      "stars": 2345
+      "label": "Mocha",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "Jasmine",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "Gulp",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "npm",
+      "description": "",
+      "stars": 1234,
+      "platform":["web", "mobile"]
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "Webpack",
+      "description": "",
+      "stars": 1234,
+      "platform":["web", "mobile"]
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "Yarn",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "label": "Eslint",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "Jslint",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "label": "JS",
+      "description": "",
+      "stars": 1234,
+      "platform":["web","mobile"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "label": "HTML5",
+      "description": "",
+      "stars": 1234,
+      "platform":["web","mobile"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "label": "CSS3",
+      "description": "",
+      "stars": 1234,
+      "platform":["web","mobile"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "SCSS",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "LESS",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "label": "Boostrap",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 1,
+      "ring": 2,
+      "label": "Angular JS",
+      "description": "",
+      "stars": 1234,
+      "platform":["web", "mobile"]
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "label": "ES6",
+      "description": "",
+      "stars": 1234,
+      "platform":["web", "mobile"]
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "label": "ES7",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 3,
+      "ring": 2,
+      "label": "Node JS",
+      "description": "",
+      "stars": 1234,
+      "platform":["web"]
+    },
+    {
+      "quadrant": 1,
+      "ring": 2,
+      "label": "C#",
+      "description": "",
+      "stars": 1234,
+      "platform":["AR/VR"]
     }
+
   ]
 }

@@ -11,15 +11,15 @@
   "rings": [
     {
       "name": "CONCEPTS",
-      "color": "#93c47d"
+      "color": "#FFF"
     },
     {
       "name": "TOOLS/SDKs",
-      "color": "#93d2c2"
+      "color": "#FFF"
     },
     {
       "name": "Frameworks",
-      "color": "#fbdb84"
+      "color": "#FFF"
     }
   ],
   "quadrants": [
