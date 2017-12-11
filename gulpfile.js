@@ -16,6 +16,7 @@ gulp.task("scripts", () => {
 gulp.task("copy", () => {
   gulp.src("app/*.css").pipe(gulp.dest("dist"));
   gulp.src("app/*.html").pipe(gulp.dest("dist"));
+  gulp.src("app/assets/**/*").pipe(gulp.dest("dist/assets"));
 });
 
 gulp.task("copy-data", () => {
