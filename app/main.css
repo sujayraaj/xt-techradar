@@ -2,6 +2,12 @@
 *{
     box-sizing: border-box;
 }
+body{
+    font-family: "Open sans", "Arial", "sans-serif";
+    width: 1345px;
+    margin: 0 auto;
+    position: relative;
+    }
 ul{
     margin:0;
     padding:0;
@@ -9,7 +15,7 @@ ul{
 .title{
     font-size: 30px;
     letter-spacing: 0.1em;
-    padding: 5px 10px;
+    padding: 15px 20px;
 }
 .ring {
     float: left;
@@ -17,15 +23,17 @@ ul{
 }
 .quad-title {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 30px;
     letter-spacing: 0.1em;
+    display: inline-block;
+    padding: 5px;
+    color: #36839C;
 }
 .quad{
-    width:370px;
-    max-height: 300px;
-    padding:20px;
+    width: 340px;
+    height: 315px;
+    padding: 5px;
     position: absolute;
-    overflow-y: auto;
 }
 .ring{
   padding:10px 15px;
@@ -33,11 +41,14 @@ ul{
   letter-spacing: 0.1em;
 }
 .ring li{
-    font-size:15px;
+    font-size:12px;
     padding:5px;
+    list-style-position: inside;
 }
 .ring-title {
     text-decoration: underline;
+    font-size: 15px;
+    text-transform: uppercase;
 }
 .filter-box{
     text-align: center;
@@ -59,14 +70,22 @@ ul{
 .filter-tags label{
     font-size: 12px;
     text-transform: uppercase;
-    padding: 0 5px;
+    padding:5px;
     letter-spacing: 0.2em;
 }
 .filter-box legend{
-    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #CCC;
+    padding: 16px;
+    background: #ccc;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 .quad2{
-    left:0;
+    left:20px;
     top:150px;
 }
 .quad3{
@@ -75,14 +94,76 @@ ul{
 }
 .quad0{
     right: 20px;
-    top: 460px;
+    top: 470px;
 }
 .quad1{
-    left:0;
-    top:460px;
+    left:20px;
+    top:470px;
 }
-body{
-width: 1345px;
-margin: 0 auto;
-position: relative;
+.filter-options{
+    border: 1px solid #000;
+    padding: 10px;
+    position: relative;
+}
+.rings-container{
+ max-height: 250px;
+ overflow-y: auto;
+}
+/***custom Checkbox ***/
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    background: #fff;
+}
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    font-size: 18px;
+    line-height: 0.8;
+    color: #000;
+    transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
+}
+
+label:hover:before {
+  border: 2px solid #4778d9!important;
 }

@@ -60,8 +60,10 @@
     return uniqueTags;
   }
   function generatefilterTemplate(filterTags) {
-    let filterTitle = $("<legend/>", { html: "Filter By Platform" });
-    let filterOptionsBox = $("<fieldset/>").append(filterTitle);
+    let filterTitle = $("<legend/>", { html: "Filter By Platforms" });
+    let filterOptionsBox = $("<div/>", { class: "filter-options" }).append(
+      filterTitle
+    );
     $.each(filterTags, function(index, tag) {
       let inputBoxContainer = $("<div/>", { class: "filter-tags" }).appendTo(
         filterOptionsBox
@@ -71,7 +73,8 @@
           value: tag,
           type: "checkbox",
           name: "filter_tags",
-          id: tag
+          id: tag,
+          checked: true
         })
       );
       $(inputBoxContainer).append(
@@ -94,7 +97,7 @@
     });
   }
   function filterData(filters) {
-    if (filters.length === 0) {
+    if (filters.length === $(".filter-box input:checkbox").length) {
       $("#radar").html("");
       fillData(app.data.entries);
       radar_visualization(app.data);
