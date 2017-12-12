@@ -4,9 +4,13 @@
 }
 body{
     font-family: "Open sans", "Arial", "sans-serif";
-    width: 1345px;
+    width:100%;
     margin: 0 auto;
     position: relative;
+    }
+    .wrapper{
+        width: 1345px;
+        margin: 0 auto;
     }
     header{
         background: url('assets/sr_header.png') no-repeat;
