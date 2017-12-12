@@ -11,6 +11,7 @@ body{
     .wrapper{
         width: 1345px;
         margin: 0 auto;
+        position: relative;
     }
     header{
         background: url('assets/sr_header.PNG') no-repeat;
@@ -100,19 +101,19 @@ ul{
 }
 .quad2{
     left:20px;
-    top:150px;
+    top:90px;
 }
 .quad3{
     right: 20px;
-    top: 150px;
+    top: 90px;
 }
 .quad0{
     right: 20px;
-    top: 470px;
+    top: 410px;
 }
 .quad1{
     left:20px;
-    top:470px;
+    top:410px;
 }
 .filter-options{
     border: 1px solid #000;
