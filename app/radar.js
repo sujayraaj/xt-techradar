@@ -374,7 +374,7 @@ function radar_visualization(config) {
         .attr("text-anchor", "middle")
         .style("fill", "#000")
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", "0")
+        .attr("font-size", "0")
         .style("pointer-events", "none")
         .style("user-select", "none")
         .style("font-weight", "bold");
@@ -382,7 +382,7 @@ function radar_visualization(config) {
     blipText
       .transition()
       .duration(700)
-      .style("font-size", function(d) {
+      .attr("font-size", function(d) {
         return blip_text.length > 2 ? "9" : "10";
       });
   });
