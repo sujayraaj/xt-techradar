@@ -13,7 +13,7 @@ body{
         margin: 0 auto;
     }
     header{
-        background: url('assets/sr_header.png') no-repeat;
+        background: url('assets/sr_header.PNG') no-repeat;
         background-size: cover;
         height: 68px;
     }
@@ -87,7 +87,7 @@ ul{
     padding:5px;
     letter-spacing: 0.2em;
 }
-.filter-box legend{
+.filter-box span{
     position: absolute;
     top: 0;
     left: 0;

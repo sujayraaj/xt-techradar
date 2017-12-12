@@ -68,7 +68,7 @@
     return uniqueTags;
   }
   function generatefilterTemplate(filterTags) {
-    let filterTitle = $("<legend/>", { html: "Filter By Platforms" });
+    let filterTitle = $("<span/>", { html: "Filter By Platforms" });
     let filterOptionsBox = $("<div/>", { class: "filter-options" }).append(
       filterTitle
     );
