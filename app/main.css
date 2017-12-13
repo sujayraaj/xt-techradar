@@ -17,7 +17,7 @@ body{
     header{
         background: url('assets/sr_header.PNG') no-repeat;
         background-size: cover;
-        height: 68px;
+        height: 10vh;
         width: 100%;
     }
 ul{
@@ -25,22 +25,23 @@ ul{
     padding:0;
 }
 .title{
-    font-size: 25px;
+    font-size: 3rem;
     letter-spacing: 0.1em;
     padding: 15px 20px;
     margin: 0;
     font-weight: normal;
-    text-align: center;
+    text-align: right;
     color: #fff;
     line-height: 35px;
+    padding-right: 10%;
+    padding-top: 5%;
+    font-weight: bold;
 }
 .ring {
-    float: left;
-    width: 50%;
 }
 .quad-title {
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 4rem;
     letter-spacing: 0.1em;
     display: inline-block;
     padding: 5px;
@@ -48,9 +49,10 @@ ul{
 }
 .quad{
     width: 340px;
-    height: 315px;
+    height: 700px;
     padding: 5px;
-    position: absolute;
+    width:50%;
+    float:left;
 }
 .ring{
   padding:10px 15px;
@@ -58,13 +60,12 @@ ul{
   letter-spacing: 0.1em;
 }
 .ring li{
-    font-size:12px;
+    font-size:2.25rem;
     padding:5px;
     list-style-position: inside;
 }
 .ring-title {
-    text-decoration: underline;
-    font-size: 15px;
+    font-size: 2.5rem;
     text-transform: uppercase;
 }
 .filter-box{
@@ -85,7 +86,7 @@ ul{
     vertical-align: middle;
 }
 .filter-tags label{
-    font-size: 12px;
+    font-size: 2rem;
     text-transform: uppercase;
     padding:5px;
     letter-spacing: 0.2em;
@@ -95,11 +96,11 @@ ul{
     top: 0;
     left: 0;
     background-color: #CCC;
-    padding: 16px;
+    padding: 40px;
     background: #ccc;
     color: #fff;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 2rem;
 }
 .quad2{
     left:20px;
@@ -112,6 +113,7 @@ ul{
 .quad0{
     right: 20px;
     top: 410px;
+    padding-left: 50px;
 }
 .quad1{
     left:20px;
@@ -119,12 +121,10 @@ ul{
 }
 .filter-options{
     border: 1px solid #000;
-    padding: 10px;
+    padding: 2vh;
     position: relative;
 }
 .rings-container{
- max-height: 250px;
- overflow-y: auto;
 }
 /***custom Checkbox ***/
 [type="checkbox"]:not(:checked),
@@ -137,6 +137,9 @@ ul{
     position: relative;
     padding-left: 30px;
     cursor: pointer;
+    left: 250px;
+    padding-right: 50px;
+    
 }
 
 [type="checkbox"]:not(:checked) + label:before,
@@ -149,6 +152,9 @@ ul{
     height: 20px;
     border: 1px solid #000;
     background: #fff;
+    width: 40px;
+    height: 40px;
+    left: -25px;
 }
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
@@ -160,6 +166,8 @@ ul{
     line-height: 0.8;
     color: #000;
     transition: all .2s;
+    top: 15px;
+    left: -10px;
 }
 
 [type="checkbox"]:not(:checked) + label:after {
@@ -185,8 +193,12 @@ label:hover:before {
   border: 2px solid #4778d9!important;
 }
 footer{
+    display: none;
     text-align: center;
     padding: 20px;
-    font-size: 12px;
+    font-size: 1.2rem;
     letter-spacing: 0.1em;
+    position: fixed;
+    bottom: 2rem;
+    left: 32%;
 }

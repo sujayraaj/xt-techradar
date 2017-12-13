@@ -1,13 +1,14 @@
 {
   "svg_id": "radar",
   "width": 1345,
-  "height":620,
+  "height":1345,
   "colors": {
     "background": "#fff",
     "grid": "#bbb",
     "inactive": "#ddd"
   },
-  "title": "SapientRazorfish_ Tech Radar",
+  "branding": "",
+  "title":"Tech Radar",
   "rings": [
     {
       "name": "CONCEPTS",

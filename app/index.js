@@ -1,7 +1,8 @@
 (function(app, $) {
   function text_visualization(config) {
-    $(".title").html(config.title);
-    /* Rings */
+    $(".title .branding").html(config.branding);
+    $(".title").append(config.title);
+        /* Rings */
     let ringsContainer = $("<div/>", { class: "rings-container" }).appendTo(
       $(".title")
     );

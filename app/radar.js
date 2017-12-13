@@ -45,7 +45,7 @@ function radar_visualization(config) {
     { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 }
   ];
 
-  const rings = [{ radius: 130 }, { radius: 220 }, { radius: 310 }];
+  const rings = [{ radius: 130*2 }, { radius: 220*2 }, { radius: 310*2 }];
 
   function polar(cartesian) {
     var x = cartesian.x;
@@ -243,16 +243,16 @@ function radar_visualization(config) {
   grid
     .append("line")
     .attr("x1", 0)
-    .attr("y1", -310)
+    .attr("y1", -310*2)
     .attr("x2", 0)
-    .attr("y2", 310)
+    .attr("y2", 310*2)
     .style("stroke", "#FFF")
     .style("stroke-width", 3);
   grid
     .append("line")
-    .attr("x1", -310)
+    .attr("x1", -310*2)
     .attr("y1", 0)
-    .attr("x2", 310)
+    .attr("x2", 310*2)
     .attr("y2", 0)
     .style("stroke", "#FFF")
     .style("stroke-width", 3);
@@ -355,7 +355,7 @@ function radar_visualization(config) {
     } else {
       var blipCircle = blip
         .append("circle")
-        .attr("r", 0)
+        .attr("r", 30)
         .attr("fill", d.color)
         .attr("stroke", "#000")
         .attr("stroke-width", 0.5);
@@ -363,7 +363,7 @@ function radar_visualization(config) {
     blipCircle
       .transition()
       .duration(600)
-      .attr("r", 9);
+      .attr("r", 30);
     // blip text
     if (config.print_layout) {
       var blip_text = config.print_layout ? d.id : d.label.match(/[a-z]/i);
